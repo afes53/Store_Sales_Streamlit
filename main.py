@@ -159,10 +159,10 @@ if selected == "Home":
             input_df= model_func.target_log_transmission(input_df) 
             input_df= model_func.selected_df(input_df,store_nbr, family)
             
-            
+
             try:
-                    model = load_model(store_nbr, family)
-                    input_df.drop(columns=["date", "store_nbr", "family", "year","sales"], inplace=True) 
+                model = load_model(store_nbr, family)
+                input_df.drop(columns=["date", "store_nbr", "family", "year","sales"], inplace=True) 
     
                 try:
                     input_df= input_df[model.feature_name_]
@@ -184,9 +184,9 @@ if selected == "Home":
                     Y_pred_original[0] = 0
                 formatted_output = f"<b>{Y_pred_original[0]}</b>"
                 st.write(f"Your total predicted sales will be :  {formatted_output}", unsafe_allow_html=True)
-
             except:
                 st.write("Your total predicted sales will be :  0", unsafe_allow_html=True)
+                
 
             
 #-------------------------------------------------------------------------------------------------------------------
