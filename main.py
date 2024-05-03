@@ -161,33 +161,34 @@ if selected == "Home":
             
             
             try:
-                model = load_model(store_nbr, family)
+                    model = load_model(store_nbr, family)
+                    input_df.drop(columns=["date", "store_nbr", "family", "year","sales"], inplace=True) 
+    
+                try:
+                    input_df= input_df[model.feature_name_]
+                except: 
+                    try:
+                        input_df = input_df[model.feature_name()]
+                    except:
+                        try:
+                            input_df= input_df[model.feature_names_in_]                      
+                        except:
+                            input_df = input_df[model.get_booster().feature_names]
+        
+                model_output = model.predict(input_df)
+                Y_pred_original = np.expm1(model_output)
+                
+                input_dict["Total Sales($)"] = Y_pred_original
+    
+                if int(Y_pred_original[0]) < 0:
+                    Y_pred_original[0] = 0
+                formatted_output = f"<b>{Y_pred_original[0]}</b>"
+                st.write(f"Your total predicted sales will be :  {formatted_output}", unsafe_allow_html=True)
+
             except:
                 st.write("Your total predicted sales will be :  0", unsafe_allow_html=True)
 
-            input_df.drop(columns=["date", "store_nbr", "family", "year","sales"], inplace=True) 
-
-            try:
-                input_df= input_df[model.feature_name_]
-            except: 
-                try:
-                    input_df = input_df[model.feature_name()]
-                except:
-                    try:
-                        input_df= input_df[model.feature_names_in_]                      
-                    except:
-                        input_df = input_df[model.get_booster().feature_names]
-    
-            model_output = model.predict(input_df)
-            Y_pred_original = np.expm1(model_output)
             
-            input_dict["Total Sales($)"] = Y_pred_original
-
-            if int(Y_pred_original[0]) < 0:
-                Y_pred_original[0] = 0
-            formatted_output = f"<b>{Y_pred_original[0]}</b>"
-            st.write(f"Your total predicted sales will be :  {formatted_output}", unsafe_allow_html=True)
-
 #-------------------------------------------------------------------------------------------------------------------
 
 #About Data
