@@ -108,7 +108,7 @@ if selected == "Home":
         col_features1, col_features2, col_features3 = st.columns(3)
 
         date=create_date_picker(df, 'date', 'Select a Date:', col_features1)
-        store_nbr = col_features2.selectbox('Store Number', np.sort(1,2,3))
+        store_nbr = col_features2.selectbox('Store Number', np.sort([1, 2, 3]))
         family = col_features3.selectbox('Family Type', np.sort(df.loc[df["store_nbr"]==store_nbr,"family"].unique()))
         is_holiday = col_features1.radio('İs it a holiday (1 holiday, 0 not a holiday', np.sort(df['is_holiday'].unique())) 
         nat_terremoto = col_features2.radio('Earthquake (earthquake in process or not)', np.sort(df['nat_terremoto'].unique()))
