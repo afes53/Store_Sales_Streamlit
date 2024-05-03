@@ -160,7 +160,11 @@ if selected == "Home":
             input_df= model_func.selected_df(input_df,store_nbr, family)
             
             
-            model = load_model(store_nbr, family)
+            try:
+                model = load_model(store_nbr, family)
+            except:
+                st.write("Your total predicted sales will be :  0", unsafe_allow_html=True)
+
             input_df.drop(columns=["date", "store_nbr", "family", "year","sales"], inplace=True) 
 
             try:
