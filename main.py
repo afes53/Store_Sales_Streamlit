@@ -285,7 +285,7 @@ elif selected == "Project Developers":
             
             ("https://media.licdn.com/dms/image/D4D03AQEx3oxABIzuFw/profile-displayphoto-shrink_400_400/0/1699646324460?e=1718841600&v=beta&t=9u8Sf_Y3GW07Uelq2YO0N5EQT-owSFNtDqasTwUvIfc", "Sevda Nur Çopur", "https://www.linkedin.com/in/sevdanurcopur/"),
             
-            ("https://media.licdn.com/dms/image/D4D35AQFFivOBr1aqiw/profile-framedphoto-shrink_400_400/0/1707406247483?e=1714482000&v=beta&t=efw_axveoFNA2unGF2X-pt-hagr6Li8sgZhk1x8lTNE", "Sefa Berk Acar", "https://www.linkedin.com/in/sefaberkacar/")
+            ("https://media.licdn.com/dms/image/D4D35AQFFivOBr1aqiw/profile-framedphoto-shrink_400_400/0/1707406247483?e=1715360400&v=beta&t=K0D5l99fePmwG6INw_00geuEfJ5VXxMUMtYOlDy6DV0", "Sefa Berk Acar", "https://www.linkedin.com/in/sefaberkacar/")
 
         ]
 
