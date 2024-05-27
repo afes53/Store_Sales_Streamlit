@@ -329,7 +329,7 @@ for family in train_2.family.unique():
         return np.mean(rmse_scores)
 
     study = optuna.create_study(direction='minimize')
-    study.optimize(objective, n_trials=5)
+    study.optimize(objective, n_trials=100)
 
     best_params = study.best_params
     best_params['family'] = family
